@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Speedy Typer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/fav.ico">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+    <body>
+
+        <div class="menu">
+            <div class="play-icon">
+                <i class="fa fa-play"></i>
+                <p id="play">play</p>
+            </div>
+            <div class="profile-icon">
+                <i class="fa fa-user"></i>
+                <p id="profile-text">profile</p>
+            </div>
+            <div class="settings-icon">
+                <i class="fa fa-cogs"></i>
+                <p id="settings-text">settings</p>
+            </div>
+            <div class="info-icon">
+                <i class="fa fa-info-circle"></i>
+                <p id="about">about</p>
+            </div>
+            <div class="theme-icon">
+                <i class="fa fa-paint-brush"></i>
+                <p id="theme">theme</p>
+            </div>
+        </div>
+
+        <div id="profile" class="profile">
+            <h4 id="profile-highliths-text">Profile highlights</h4>
+            <p>Tests completed: <span id="tests-completed">0</span></p>
+            <p>Best accuracy: <span id="best-accuracy">N/A</span></p>
+            <p>Best speed: <span id="best-speed">N/A</span></p>
+            <button id="clear-profile">Clear Profile</button>
+        </div>
+
+        <div id="settings" class="settings">
+            <p id="time-limit">Time limit: 
+                <span>
+                    <select id="select-time" class="select">
+                        <option value="60">60s</option>
+                        <option value="30">30s</option>
+                        <option value="120">120s</option>
+                    </select>
+                </span>
+            </p>
+            <p id="language">Language / Язык:
+                <span>
+                    <select id="select-language" class="select">
+                        <option value="english">english</option>
+                        <option value="russian">русский</option>
+                    </select>
+                </span>
+            </p>
+            <p id="max-mistakes">Max mistakes allowed: 
+                <span>
+                    <select id="select-mistakes" class="select">
+                        <option value="off">off</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                </span>
+            </p>
+        </div>
+
+        <div class="info">
+            <h4>About the project</h4>
+            <p>
+                Speedy Typer is a game where you need to type the given piece of text 
+                as fast as you can. It was created so users could test and practice their
+                typings skills. To start the test click the 'Start Test' button, then try
+                to complete the task within the given amount of time. After the test there
+                are detailed stats available, such as Accuracy, Speed and others. You can
+                challenge yourself by reducing the time limit or setting the number of mistakes 
+                allowed. 
+                <br />
+                <br />
+                Created by Vladimir Shkliaryk.
+            </p>
+           
+        </div>
+
+        <div class="change-theme">
+            <h3 id="change-theme-text">Pick a theme</h3>
+            <label>
+                <input id="purple-yellow" type="radio" name="radio" class="radio-btn" checked>
+                    <span id="purple-yellow-text">Purple-Yellow</span>
+                </input>
+            </label>
+            <label>
+                <input id="blue-white" type="radio" name="radio" class="radio-btn">
+                    <span id="blue-white-text">Blue-White</span>
+                </input>
+            </label>
+            <label>
+                <input id="red-gray" type="radio" name="radio" class="radio-btn">
+                    <span id="red-gray-text">Red-Gray</span>
+                </input>
+            </label>
+        </div>
+
+
+        <div class="container">
+            <i class="fa fa-refresh restart"></i>
+            <div class="stats">
+                <p id="time-text">Time left: <span id="timer">60</span></p>
+                <p id="mistakes-text">Mistakes: <span id="mistakes">0</span></p>
+            </div>
+            <div
+                id="quote"
+                onmousedown="return false"
+                onselectstart="return false"
+            ></div>
+            <textarea
+                rows="3"
+                id="quote-input"
+                placeholder="Input text here..."
+            ></textarea>
+
+            <button id="start-test">Start Test</button>
+            <button id="stop-test">Stop Test</button>
+
+            <div>
+                <p class="all-correct">Success!</p>
+                <p class="out-of-time">Time is up!</p>
+                <p class="too-many-mistakes">Too many mistakes!</p>
+            </div>
+
+            <div class="result">
+                <h3 id="result-text">Result</h3>
+                    <div class="detailed-stats">
+                        <p class="stats-item">Accuracy: <span id="accuracy"></span></p>
+                        <p class="stats-item">Speed: <span id="speed"></span></p>
+                    </div>
+                    <i class="fa fa-chevron-down open-stats"></i>
+                    <i class="fa fa-chevron-up close-stats"></i>
+            </div>
+
+            <div class="preloader">
+                <div class="loader"></div>
+            </div>
+        </div>
+
+
+        <script src="./src/preloader.js"></script>
+        <script src="./src/timer.js"></script>
+        <script src="./src/displayResult.js"></script>
+        <script src="./src/detailed_stats.js"></script>
+        <script src="./src/startTest.js"></script>
+        <script src="./src/openProfile.js"></script>
+        <script src="./src/openSettings.js"></script>
+        <script src="./src/changeLanguage.js"></script>
+        <script src="./src/openInfo.js"></script>
+        <script src="./src/changeTheme.js"></script>
+        <script src="./src/main.js"></script>
+        <script src="./src/buttons_animation.js"></script>
+    </body>
+</html>
